@@ -6,20 +6,12 @@ function [J, grad] = costFunction(theta, X, y)
 
 % Initialize some useful values
 m = length(y); % number of training examples
-hx = sigmoid(X*theta);
-
+hx = sigmoid(X * theta);
 
 % Calculate the cost function
-J = (1/m) * sum(log(hx) .* (-y) - log(1 - hx) .* (1-y));
+J = (1/m) * ((-y)' * log(hx) - (1-y)' * log(1 - hx));
 
 % Calculate the gradient
 grad = 1/(m) * (X' * (hx - y));
-
-
-
-
-
-
-% =============================================================
 
 end
