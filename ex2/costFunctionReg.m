@@ -11,7 +11,7 @@ m = length(y); % number of training examples
 [J, grad] = costFunction(theta, X, y);
 
 % Add regularization parameters (don't use theta0)
-J = J + lambda/(2*m) * sum(theta(2:size(theta)) .^ 2);
+J = J + lambda/(2*m) * theta(2:end)' * theta(2:end);
 grad(2:end) = grad(2:end) + lambda/m * theta(2:end);
 
 
